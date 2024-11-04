@@ -97,3 +97,16 @@ input[type="range"] {
 .button-grid button:hover {
     background-color: #45a049;
 }
+
+/* Snake Game styling */
+.game-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+#gameCanvas {
+    border: 2px solid #333;
+    background-color: #f4f4f4;
+    display: block;
+    margin: 0 auto;
+}
