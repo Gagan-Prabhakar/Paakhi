@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Quiz and Game</title>
+    <title>Fun Quiz with Paakhi</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -13,7 +13,7 @@
             color: #333;
             margin: 0;
             padding: 0;
-            height: 100vh;
+            height: 100vh; /* Full height for a full-screen effect */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,12 +22,12 @@
 
         .container {
             max-width: 600px;
-            width: 100%;
+            width: 100%; /* Full width for smaller screens */
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             background-color: #ffffff;
-            opacity: 0.95;
+            opacity: 0.95; /* Slightly transparent for a layered effect */
         }
 
         h1 {
@@ -36,13 +36,23 @@
             color: #2c3e50;
         }
 
+        .paakhi-dialogue {
+            font-size: 1.2em;
+            margin: 20px 0;
+            color: #8e44ad; /* Color for Paakhi's text */
+            background-color: #ecf0f1; /* Light background for contrast */
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #bdc3c7; /* Light border */
+        }
+
         .options button {
             display: block;
             width: 100%;
             margin: 10px 0;
             padding: 15px;
             font-size: 1.2em;
-            background-color: #3498db;
+            background-color: #3498db; /* Primary color */
             color: white;
             border: none;
             border-radius: 8px;
@@ -51,38 +61,39 @@
         }
 
         .options button:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
+            background-color: #2980b9; /* Darker shade on hover */
+            transform: scale(1.05); /* Slightly enlarge button on hover */
         }
 
         .options button:active {
-            transform: scale(0.95);
+            transform: scale(0.95); /* Shrink button on click */
         }
 
         .question {
             font-size: 1.5em;
             margin-bottom: 20px;
-            color: #34495e;
+            color: #34495e; /* Darker color for question text */
         }
 
         #score {
             font-size: 1.5em;
-            color: #27ae60;
+            color: #27ae60; /* Green color for score */
         }
 
         #next-question {
             margin-top: 20px;
-            background-color: #e67e22;
+            background-color: #e67e22; /* Color for next question button */
         }
 
         #next-question:hover {
-            background-color: #d35400;
+            background-color: #d35400; /* Darker shade on hover */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the Fun Quiz and Game</h1>
+        <h1>Welcome to the Fun Quiz with Paakhi!</h1>
+        <div id="paakhi-dialogue" class="paakhi-dialogue"></div>
         <div class="options">
             <button id="quiz-btn">Start Quiz</button>
             <button id="game-btn">Play Game (Coming Soon!)</button>
@@ -97,6 +108,7 @@
         // Show quiz on button click
         document.getElementById("quiz-btn").onclick = function() {
             document.querySelector('.options').style.display = 'none'; // Hide options
+            setPaakhiDialogue("Hello! I'm Paakhi, your quiz master. Let's get started!"); // Paakhi introduction
             loadQuestion(); // Start the quiz
         };
 
@@ -104,6 +116,10 @@
         document.getElementById("game-btn").onclick = function() {
             alert("The game feature is coming soon!");
         };
+
+        function setPaakhiDialogue(message) {
+            document.getElementById("paakhi-dialogue").innerText = message;
+        }
     </script>
 </body>
 </html>
