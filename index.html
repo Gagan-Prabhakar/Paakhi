@@ -6,119 +6,112 @@
     <title>Fun Quiz with Paakhi</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* General Page Styles */
         body {
             font-family: 'Roboto', sans-serif;
-            text-align: center;
-            background-image: linear-gradient(to bottom right, #a1c4fd, #c2e9fb);
-            color: #333;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
+            background-color: #f0f8ff;
             display: flex;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
+            height: 100vh;
+            margin: 0;
         }
 
         .container {
+            text-align: center;
             max-width: 600px;
-            width: 100%;
-            padding: 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             background-color: #ffffff;
-            opacity: 0.95;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            margin-bottom: 20px;
-            font-size: 2.5em;
             color: #2c3e50;
+            margin-bottom: 20px;
         }
 
+        /* Dialogue box for Paakhi */
         .paakhi-dialogue {
+            background-color: #e3f2fd;
+            color: #1a237e;
             font-size: 1.2em;
-            margin: 20px 0;
-            color: #8e44ad;
-            background-color: #ecf0f1;
+            margin: 15px;
             padding: 15px;
             border-radius: 10px;
-            border: 1px solid #bdc3c7;
+            border: 1px solid #90caf9;
         }
 
+        /* Options and Quiz Buttons */
         .options button {
-            display: block;
             width: 100%;
             margin: 10px 0;
             padding: 15px;
-            font-size: 1.2em;
-            background-color: #3498db;
-            color: white;
+            background-color: #2196f3;
+            color: #fff;
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            font-size: 1.1em;
         }
 
         .options button:hover {
-            background-color: #2980b9;
-            transform: scale(1.05);
+            background-color: #1976d2;
         }
 
-        .options button:active {
-            transform: scale(0.95);
-        }
-
-        .question {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: #34495e;
-        }
-
-        #score {
-            font-size: 1.5em;
-            color: #27ae60;
+        .options button:disabled {
+            background-color: #b0bec5;
+            cursor: not-allowed;
         }
 
         #next-question {
             margin-top: 20px;
-            background-color: #e67e22;
+            font-size: 1.3em;
+            background-color: #ff9800;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
         }
 
         #next-question:hover {
-            background-color: #d35400;
+            background-color: #f57c00;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            height: 8px;
+            background-color: #cfd8dc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #4caf50;
+            width: 0;
+            transition: width 0.4s ease;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the Fun Quiz with Paakhi!</h1>
-        <div id="paakhi-dialogue" class="paakhi-dialogue"></div>
+        <h1>Welcome to the Fun Quiz and Games with Paakhi!</h1>
+        <div id="paakhi-dialogue" class="paakhi-dialogue">Hello! I'm Paakhi, your quiz master. Ready to play?</div>
         <div class="options">
             <button id="quiz-btn">Start Quiz</button>
-            <button id="game-btn">Play Game (Coming Soon!)</button>
+            <button id="game-btn">Play Game (Coming Soon)</button>
         </div>
-        <div id="quiz" style="display: none;"></div>
-        <p id="score" style="display: none;"></p>
-        <button id="next-question" style="display: none;">Next Question</button>
+        <div id="quiz" style="display: none;">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+            <div id="question-container"></div>
+            <div id="next-question" style="display: none;">Next Question</div>
+        </div>
     </div>
-
     <script src="script.js"></script>
-    <script>
-        // Show quiz on button click
-        document.getElementById("quiz-btn").onclick = function() {
-            document.querySelector('.options').style.display = 'none'; // Hide options
-            loadQuestion(); // Start the quiz
-        };
-
-        // Placeholder for game button functionality
-        document.getElementById("game-btn").onclick = function() {
-            alert("The game feature is coming soon!");
-        };
-
-        function setPaakhiDialogue(message) {
-            document.getElementById("paakhi-dialogue").innerText = message;
-        }
-    </script>
 </body>
 </html>
