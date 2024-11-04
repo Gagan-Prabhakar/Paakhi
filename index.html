@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Quiz</title>
+    <title>Fun Quiz and Game</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,7 +11,7 @@
             background-color: #f0f8ff;
             color: #333;
         }
-        .quiz-container {
+        .container {
             max-width: 600px;
             margin: auto;
             padding: 20px;
@@ -19,16 +19,15 @@
             border-radius: 8px;
             background-color: #ffffff;
         }
-        .question {
-            font-size: 1.2em;
-            margin: 20px 0;
+        h1 {
+            margin-bottom: 30px;
         }
         .options button {
             display: block;
             width: 100%;
-            margin: 5px 0;
-            padding: 10px;
-            font-size: 1em;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.2em;
             background-color: #2e86de;
             color: white;
             border: none;
@@ -38,21 +37,13 @@
         .options button:hover {
             background-color: #3a98f2;
         }
-        #score {
-            font-size: 1.2em;
-            margin-top: 20px;
-            color: #4CAF50;
-        }
     </style>
 </head>
 <body>
-    <div class="quiz-container">
-        <h1>Fun Quiz</h1>
-        <div id="quiz"></div>
-        <p id="score" style="display: none;"></p>
-        <button id="next-question" style="display: none;">Next Question</button>
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="container">
+        <h1>Welcome to the Fun Quiz and Game</h1>
+        <div class="options">
+            <button id="quiz-btn">Start Quiz</button>
+            <button id="game-btn">Play Game (Coming Soon!)</button>
+        </div>
+        <div id="qu
