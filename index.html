@@ -1,117 +1,62 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Quiz with Paakhi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        /* General Page Styles */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f0f8ff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            text-align: center;
-            max-width: 600px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        h1 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-
-        /* Dialogue box for Paakhi */
-        .paakhi-dialogue {
-            background-color: #e3f2fd;
-            color: #1a237e;
-            font-size: 1.2em;
-            margin: 15px;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #90caf9;
-        }
-
-        /* Options and Quiz Buttons */
-        .options button {
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            background-color: #2196f3;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 1.1em;
-        }
-
-        .options button:hover {
-            background-color: #1976d2;
-        }
-
-        .options button:disabled {
-            background-color: #b0bec5;
-            cursor: not-allowed;
-        }
-
-        #next-question {
-            margin-top: 20px;
-            font-size: 1.3em;
-            background-color: #ff9800;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        #next-question:hover {
-            background-color: #f57c00;
-        }
-
-        /* Progress Bar */
-        .progress-bar {
-            height: 8px;
-            background-color: #cfd8dc;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            overflow: hidden;
-        }
-
-        .progress-bar-fill {
-            height: 100%;
-            background-color: #4caf50;
-            width: 0;
-            transition: width 0.4s ease;
-        }
+  <head>
+    <title>Spotless Hungry Crocodile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
     </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to the Fun Quiz and Games with Paakhi!</h1>
-        <div id="paakhi-dialogue" class="paakhi-dialogue">Hello! I'm Paakhi, your quiz master. Ready to play?</div>
-        <div class="options">
-            <button id="quiz-btn">Start Quiz</button>
-            <button id="game-btn">Play Game (Coming Soon)</button>
-        </div>
-        <div id="quiz" style="display: none;">
-            <div class="progress-bar">
-                <div class="progress-bar-fill" id="progress-bar-fill"></div>
-            </div>
-            <div id="question-container"></div>
-            <div id="next-question" style="display: none;">Next Question</div>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-theme-neutral-dark);
+        background: var(--dl-color-theme-neutral-light);
+
+        fill: var(--dl-color-theme-neutral-dark);
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <div id="app"></div>
+    <script
+      defer
+      src="https://unpkg.com/@teleporthq/teleport-custom-scripts"
+    ></script>
+  </body>
 </html>
