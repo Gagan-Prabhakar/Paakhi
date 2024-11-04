@@ -59,6 +59,7 @@ const scoreDisplay = document.getElementById("score");
 const nextButton = document.getElementById("next-question");
 
 function loadQuestion() {
+    quizContainer.style.display = "block"; // Show quiz container
     quizContainer.innerHTML = "";
     scoreDisplay.style.display = "none";
     nextButton.style.display = "none";
@@ -107,5 +108,3 @@ function showScore() {
 nextButton.addEventListener("click", () => {
     loadQuestion();
 });
-
-loadQuestion();
