@@ -1,49 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fun Quiz and Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f8ff;
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #ffffff;
-        }
-        h1 {
-            margin-bottom: 30px;
-        }
-        .options button {
-            display: block;
-            width: 100%;
-            margin: 10px 0;
-            padding: 15px;
-            font-size: 1.2em;
-            background-color: #2e86de;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .options button:hover {
-            background-color: #3a98f2;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Welcome to the Fun Quiz and Game</h1>
-        <div class="options">
-            <button id="quiz-btn">Start Quiz</button>
-            <button id="game-btn">Play Game (Coming Soon!)</button>
-        </div>
-        <div id="qu
+const questions = [
+    // Your quiz questions here (same as before)
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+const quizContainer = document.getElementById("quiz");
+const scoreDisplay = document.getElementById("score");
+const nextButton = document.getElementById("next-question");
+
+function loadQuestion() {
+    quizContainer.style.display = "block"; // Show quiz container
+    quizContainer.innerHTML = "";
+    scoreDisplay.style.display = "none";
+    nextButton.style.display = "none";
+
+    const question = questions[currentQuestion];
+    const questionElement = document.createElement("div");
+    questionElement.className = "question";
+    questionElement.innerText = question.question;
+    quizContainer.appendChild(questionElement);
+
+    const optionsElement = document.createElement("div");
+    optionsElement.className = "options";
+
+    question.options.forEach(option => {
+        const button = document.createElement("button");
+        button.innerText = option;
+        button.addEventListener("click", () => checkAnswer(option));
+        optionsElement.appendChild(button);
+    });
+
+    quizContainer.appendChild(optionsElement);
+}
+
+function checkAnswer(selectedOption) {
+    const question = questions[currentQuestion];
+
+    if (selectedOption === question.answer) {
+        score++;
+    }
+
+    currentQuestion++;
+
+    if (currentQuestion < questions.length) {
+        nextButton.style.display = "block"; // Show next button
+    } else {
+        showScore(); // Show score when done
+    }
+}
+
+function showScore() {
+    quizContainer.innerHTML = "";
+    scoreDisplay.innerText = `You scored ${score} out of ${questions.length}`;
+    scoreDisplay.style.display = "block"; // Show score
+}
+
+// Handle next question button click
+nextButton.addEventListener("click", () => {
+    loadQuestion();
+});
