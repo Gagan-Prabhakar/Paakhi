@@ -2,58 +2,67 @@ const questions = [
     {
         question: "What is the capital of France?",
         options: ["Berlin", "Madrid", "Paris", "Rome"],
-        answer: "Paris"
+        answer: "Paris",
+        paakhiDialogue: "Alright, let's warm up! What's the capital of France?"
     },
     {
         question: "Which planet is known as the Red Planet?",
         options: ["Earth", "Mars", "Jupiter", "Saturn"],
-        answer: "Mars"
+        answer: "Mars",
+        paakhiDialogue: "Next up! Can you tell me which planet is known as the Red Planet?"
     },
     {
         question: "What is the largest ocean on Earth?",
         options: ["Atlantic Ocean", "Indian Ocean", "Arctic Ocean", "Pacific Ocean"],
-        answer: "Pacific Ocean"
+        answer: "Pacific Ocean",
+        paakhiDialogue: "Here's a tricky one! What is the largest ocean on Earth?"
     },
     {
         question: "Who wrote 'Romeo and Juliet'?",
-        options: ["Charles Dickens", "William Shakespeare", "Mark Twain", "Jane Austen"],
-        answer: "William Shakespeare"
+        options: ["Charles Dickens", "Jane Austen", "William Shakespeare", "Mark Twain"],
+        answer: "William Shakespeare",
+        paakhiDialogue: "Literature time! Who wrote 'Romeo and Juliet'?"
     },
     {
         question: "What is the chemical symbol for water?",
-        options: ["H2O", "O2", "CO2", "HO2"],
-        answer: "H2O"
+        options: ["H2O", "O2", "CO2", "NaCl"],
+        answer: "H2O",
+        paakhiDialogue: "Let's test your science knowledge! What is the chemical symbol for water?"
     },
     {
-        question: "What is the capital of Japan?",
-        options: ["Tokyo", "Seoul", "Bangkok", "Beijing"],
-        answer: "Tokyo"
+        question: "Which country is known as the Land of the Rising Sun?",
+        options: ["China", "Japan", "Thailand", "South Korea"],
+        answer: "Japan",
+        paakhiDialogue: "Culture check! Which country is known as the Land of the Rising Sun?"
     },
     {
-        question: "In which year did the Titanic sink?",
-        options: ["1912", "1905", "1918", "1923"],
-        answer: "1912"
+        question: "What is the smallest prime number?",
+        options: ["0", "1", "2", "3"],
+        answer: "2",
+        paakhiDialogue: "Math time! Can you tell me what is the smallest prime number?"
     },
     {
-        question: "What is the largest mammal in the world?",
-        options: ["Elephant", "Blue Whale", "Giraffe", "Great White Shark"],
-        answer: "Blue Whale"
+        question: "Which element has the chemical symbol 'O'?",
+        options: ["Osmium", "Oxygen", "Gold", "Silver"],
+        answer: "Oxygen",
+        paakhiDialogue: "Let's breathe in some knowledge! Which element has the chemical symbol 'O'?"
     },
     {
-        question: "What is the hardest natural substance on Earth?",
-        options: ["Gold", "Iron", "Diamond", "Sapphire"],
-        answer: "Diamond"
+        question: "What is the currency of the United States?",
+        options: ["Dollar", "Euro", "Pound", "Yen"],
+        answer: "Dollar",
+        paakhiDialogue: "Finance question! What is the currency of the United States?"
     },
     {
-        question: "Who painted the Mona Lisa?",
-        options: ["Vincent van Gogh", "Pablo Picasso", "Leonardo da Vinci", "Claude Monet"],
-        answer: "Leonardo da Vinci"
+        question: "Which organ is responsible for pumping blood in the human body?",
+        options: ["Liver", "Lungs", "Heart", "Kidneys"],
+        answer: "Heart",
+        paakhiDialogue: "Health check! Which organ is responsible for pumping blood in the human body?"
     }
 ];
 
 let currentQuestion = 0;
 let score = 0;
-
 const quizContainer = document.getElementById("quiz");
 const scoreDisplay = document.getElementById("score");
 const nextButton = document.getElementById("next-question");
@@ -81,6 +90,9 @@ function loadQuestion() {
     });
 
     quizContainer.appendChild(optionsElement);
+    
+    // Paakhi asks the question
+    setPaakhiDialogue(question.paakhiDialogue);
 }
 
 function checkAnswer(selectedOption) {
@@ -88,23 +100,13 @@ function checkAnswer(selectedOption) {
 
     if (selectedOption === question.answer) {
         score++;
+        setPaakhiDialogue("Great job! That's correct!"); // Positive feedback
+    } else {
+        setPaakhiDialogue(`Oops! The correct answer was "${question.answer}".`); // Incorrect feedback
     }
 
     currentQuestion++;
 
     if (currentQuestion < questions.length) {
-        nextButton.style.display = "block";
-    } else {
-        showScore();
+        nextButton.style.display = "block"; // Show next button
     }
-}
-
-function showScore() {
-    quizContainer.innerHTML = "";
-    scoreDisplay.innerText = `You scored ${score} out of ${questions.length}`;
-    scoreDisplay.style.display = "block";
-}
-
-nextButton.addEventListener("click", () => {
-    loadQuestion();
-});
