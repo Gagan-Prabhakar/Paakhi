@@ -13,7 +13,7 @@
             color: #333;
             margin: 0;
             padding: 0;
-            height: 100vh; /* Full height for a full-screen effect */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -22,12 +22,12 @@
 
         .container {
             max-width: 600px;
-            width: 100%; /* Full width for smaller screens */
+            width: 100%;
             padding: 20px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             background-color: #ffffff;
-            opacity: 0.95; /* Slightly transparent for a layered effect */
+            opacity: 0.95;
         }
 
         h1 {
@@ -39,11 +39,11 @@
         .paakhi-dialogue {
             font-size: 1.2em;
             margin: 20px 0;
-            color: #8e44ad; /* Color for Paakhi's text */
-            background-color: #ecf0f1; /* Light background for contrast */
+            color: #8e44ad;
+            background-color: #ecf0f1;
             padding: 15px;
             border-radius: 10px;
-            border: 1px solid #bdc3c7; /* Light border */
+            border: 1px solid #bdc3c7;
         }
 
         .options button {
@@ -52,7 +52,7 @@
             margin: 10px 0;
             padding: 15px;
             font-size: 1.2em;
-            background-color: #3498db; /* Primary color */
+            background-color: #3498db;
             color: white;
             border: none;
             border-radius: 8px;
@@ -61,32 +61,32 @@
         }
 
         .options button:hover {
-            background-color: #2980b9; /* Darker shade on hover */
-            transform: scale(1.05); /* Slightly enlarge button on hover */
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
 
         .options button:active {
-            transform: scale(0.95); /* Shrink button on click */
+            transform: scale(0.95);
         }
 
         .question {
             font-size: 1.5em;
             margin-bottom: 20px;
-            color: #34495e; /* Darker color for question text */
+            color: #34495e;
         }
 
         #score {
             font-size: 1.5em;
-            color: #27ae60; /* Green color for score */
+            color: #27ae60;
         }
 
         #next-question {
             margin-top: 20px;
-            background-color: #e67e22; /* Color for next question button */
+            background-color: #e67e22;
         }
 
         #next-question:hover {
-            background-color: #d35400; /* Darker shade on hover */
+            background-color: #d35400;
         }
     </style>
 </head>
@@ -108,7 +108,6 @@
         // Show quiz on button click
         document.getElementById("quiz-btn").onclick = function() {
             document.querySelector('.options').style.display = 'none'; // Hide options
-            setPaakhiDialogue("Hello! I'm Paakhi, your quiz master. Let's get started!"); // Paakhi introduction
             loadQuestion(); // Start the quiz
         };
 
