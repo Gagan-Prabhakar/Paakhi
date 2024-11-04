@@ -109,4 +109,19 @@ function checkAnswer(selectedOption) {
 
     if (currentQuestion < questions.length) {
         nextButton.style.display = "block"; // Show next button
+    } else {
+        showScore(); // Show score when done
     }
+}
+
+function showScore() {
+    quizContainer.innerHTML = "";
+    scoreDisplay.innerText = `You scored ${score} out of ${questions.length}`;
+    scoreDisplay.style.display = "block"; // Show score
+    setPaakhiDialogue("Thanks for playing! I hope you had fun!"); // Ending message
+}
+
+// Handle next question button click
+nextButton.addEventListener("click", () => {
+    loadQuestion();
+});
